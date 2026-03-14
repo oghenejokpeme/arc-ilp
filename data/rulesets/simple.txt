@@ -1,0 +1,31 @@
+v_run_start_(Example, R, C, Color, R) :-
+    in_state(Example, R, C, Color),
+    UR is R - 1,
+    \+ in_state(Example, UR, C, Color).
+v_run_start_(Example, R, C, Color, Start) :-
+    in_state(Example, R, C, Color),
+    UR is R - 1,
+    in_state(Example, UR, C, Color),
+    v_run_start_(Example, UR, C, Color, Start).
+
+v_run_end_(Example, R, C, Color, R) :-
+    in_state(Example, R, C, Color),
+    DR is R + 1,
+    \+ in_state(Example, DR, C, Color).
+v_run_end_(Example, R, C, Color, End) :-
+    in_state(Example, R, C, Color),
+    DR is R + 1,
+    in_state(Example, DR, C, Color),
+    v_run_end_(Example, DR, C, Color, End).
+
+run_length_v(Example, R, C, Color, Len) :- % ex, row_id, col_id, color, length
+    in_state(Example, R, C, Color),
+    v_run_start_(Example, R, C, Color, Start),
+    v_run_end_(Example, R, C, Color, End),
+    Len is End - Start + 1.
+
+nearest_color_right(Example, R, C, Color, NC) :- % ex, row_id, col_id, color, col_id
+    in_state(Example, R, C, _),
+    in_state(Example, R, NC, Color),
+    NC > C,
+    \+ (in_state(Example, R, Mid, Color), Mid < NC, Mid > C).

@@ -1,0 +1,19 @@
+[project]
+name = "arc-experiments"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "pandas",
+    "janus-swi",
+    "popper-ilp",
+]
+
+[tool.uv.sources]
+popper-ilp = { path = "Popper" }
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.ruff]
+line-length = 100
+exclude = ["data", "Popper"]

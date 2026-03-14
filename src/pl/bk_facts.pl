@@ -1,0 +1,10 @@
+black(0).
+blue(1).
+red(2).
+green(3).
+yellow(4).
+gray(5).
+pink(6).
+orange(7).
+aqua(8).
+maroon(9).
