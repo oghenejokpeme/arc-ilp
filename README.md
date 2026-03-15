@@ -21,7 +21,7 @@ adj(Example, R, C, NR, C) :- % ex, row_id, col_id, row_id, col_id
 
 It states that for an `Example`, the cell with coordinates `(NR, C)` is adjacent to the `(R, C)` cell. The primary thing to note is the comment after the head definition for `adj/4`. `ex, row_id, col_id, row_id, col_id` specify the types for the variables and is used in the body predicate and type declarations for Popper. A default set of background predicates is provided in `data/rulesets/default.txt`. 
 
-The thing to remember when constructing background predicates is that the input and output grid for the examples in a given task are formalised as `in_state/4` and `out_state/4` respectively. They both have `Example`, `Row`, `Column`, and `Color` as variables. The facts for cell colors are also provided.
+The thing to remember when constructing background predicates is that the input and output grid for the examples in a given task are formalised as `in_state/4` and `out_state/4` respectively. They both have `Example`, `Row`, `Column`, and `Color` as variables. The internal variable types used with Popper are `ex`, `row_id`, `col_id`, and `color`. The facts for cell colors are also provided.
 
 ## Prerequisites
 
