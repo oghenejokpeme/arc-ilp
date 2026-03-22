@@ -111,7 +111,9 @@ def parse_ruleset(ruleset_path: str) -> tuple[list[str], list[str], list[str]]:
             except AssertionError:
                 msg = f"Variables and type definitions don't match in ruleset: {head_def}"
                 raise Exception(msg)
-
+            if arity == 1:
+                var_types = var_types + ","
+                
             term = f"{pred}/{arity}"
             body = f"body_pred({pred}, {arity})."
             type_fact = f"type({pred}, ({var_types}))."
